@@ -8,6 +8,7 @@ async function bootstrap() {
   const swaggerConf = new DocumentBuilder()
     .setTitle('Backend Beadando')
     .setVersion('0.1.0')
+    .addTag('todo', 'Manage To Do entries')
     .build();
 
   const swaggerDoc = SwaggerModule.createDocument(app, swaggerConf);
