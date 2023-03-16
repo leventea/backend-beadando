@@ -1,1 +1,5 @@
-export class CreateToDoDto {}
+import { PickType } from '@nestjs/swagger';
+import { IsDate, IsNotEmpty, IsString } from 'class-validator';
+import { ToDo } from '../entities/to-do.entity';
+
+export class CreateToDoDto extends PickType(ToDo, ['title', 'content', 'location', 'deadline']) {};

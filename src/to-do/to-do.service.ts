@@ -12,23 +12,24 @@ export class ToDoService {
     private toDoRepo: Repository<ToDo>
   ){}
 
-  create(createToDoDto: CreateToDoDto) {
-    return 'This action adds a new toDo';
+  async create(createToDoDto: CreateToDoDto): Promise<ToDo> {
+    const res = await this.toDoRepo.save(createToDoDto);
+    return res;
   }
 
   findAll() {
-    return `This action returns all toDo`;
+    return this.toDoRepo.find();
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} toDo`;
+  findOne(id: string) {
+    return this.toDoRepo.findOne({ where: { id } });
   }
 
-  update(id: number, updateToDoDto: UpdateToDoDto) {
-    return `This action updates a #${id} toDo`;
+  update(id: string, updateToDoDto: UpdateToDoDto) {
+    return this.toDoRepo.update({ id }, updateToDoDto);
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} toDo`;
+  remove(id: string) {
+    return this.toDoRepo.delete({ id });
   }
 }
