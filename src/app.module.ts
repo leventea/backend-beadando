@@ -4,6 +4,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ToDoModule } from './to-do/to-do.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { ToDoService } from './to-do/to-do.service';
 
 @Module({
   imports: [
